@@ -8,8 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🎁</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.2/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     /* ===========================
        DESIGN TOKENS
@@ -205,7 +204,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       background-size: 300px 300px;
     }
-    #particles { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
     .hero-inner {
       position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; width: 100%;
       display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 60px; align-items: center;
@@ -275,12 +273,7 @@
       border-radius: var(--r-sm); color: var(--mint); font-weight: 500; font-size: 15px;
     }
     .hero-success.show { display: flex; }
-    .social-proof { display: flex; align-items: center; gap: 14px; }
-    .avatars { display: flex; }
-    .avatar { width: 38px; height: 38px; border-radius: 50%; border: 2.5px solid var(--bg); margin-left: -10px; object-fit: cover; }
-    .avatars .avatar:first-child { margin-left: 0; }
-    .social-text { font-size: 14px; color: rgba(255,255,255,0.6); }
-    .social-text strong { color: var(--white); }
+    .hero-fineprint { font-size: 14px; color: rgba(255,255,255,0.55); }
 
     /* Hero floating cards */
     .hero-cards-wrap { position: relative; height: 640px; }
@@ -327,7 +320,7 @@
     .fc-amount-sub { font-size: 13px; color: rgba(255,255,255,0.38); font-family: 'DM Sans', sans-serif; font-weight: 400; }
     .fc-contrib { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 12px; color: rgba(255,255,255,0.45); }
     .fc-avs { display: flex; }
-    .fc-av { width: 24px; height: 24px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.1); margin-left: -6px; overflow: hidden; }
+    .fc-av { width: 24px; height: 24px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.1); margin-left: -6px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; line-height: 1; font-family: 'DM Sans', sans-serif; }
     .fc-av:first-child { margin-left: 0; }
     .fc-big { font-family: 'Fraunces', serif; font-size: 42px; font-weight: 900; color: var(--white); margin: 8px 0; }
     .fc-desc { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
@@ -339,7 +332,6 @@
     .divider-dark-down { height: 60px; background: linear-gradient(to bottom, var(--light), var(--bg)); }
     .divider-light-up  { height: 60px; background: linear-gradient(to bottom, var(--bg), var(--light)); }
     .divider-dark-down-2 { height: 60px; background: linear-gradient(to bottom, var(--light), var(--bg)); }
-    .divider-light-from-blue { height: 60px; background: linear-gradient(to bottom, #3B1FA3, var(--light)); }
 
     /* ===========================
        OCCASIONS STRIP (light)
@@ -469,7 +461,7 @@
       padding: 13px; background: var(--light); border-radius: 12px;
       margin-bottom: 10px; border: 1px solid rgba(0,0,0,0.05);
     }
-    .demo-img { width: 50px; height: 50px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+    .demo-img { width: 50px; height: 50px; border-radius: 10px; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 22px; font-family: 'Fraunces', serif; }
     .demo-item-info { flex: 1; min-width: 0; }
     .demo-item-name { font-weight: 600; font-size: 14px; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .demo-item-price { font-size: 13px; color: var(--muted); }
@@ -498,7 +490,10 @@
     .demo-contrib-avs { display: flex; }
     .demo-contrib-av {
       width: 32px; height: 32px; border-radius: 50%;
-      border: 2.5px solid var(--white); margin-left: -8px; overflow: hidden;
+      border: 2.5px solid var(--white); margin-left: -8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 600; color: #fff; line-height: 1;
+      font-family: 'DM Sans', sans-serif;
       opacity: 0; transform: scale(0);
       transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
     }
@@ -576,27 +571,7 @@
       padding-right: 44px; position: relative; z-index: 2;
     }
 
-    /* ===========================
-       STATS (purple animated bg)
-    =========================== */
-    #stats {
-      background-image: linear-gradient(135deg, #5B21B6, #7C3AED, #6D28D9, #7C3AED);
-      background-size: 300% 300%;
-      animation: statsGrad 8s ease infinite;
-      padding: 80px 48px;
-    }
-    @keyframes statsGrad {
-      0%   { background-position: 0% 50%; }
-      50%  { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    .stats-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; text-align: center; }
-    .stat-icon { font-size: 28px; margin-bottom: 12px; display: block; opacity: 0.85; }
-    .stat-num { font-family: 'Fraunces', serif; font-size: clamp(72px,7vw,96px); font-weight: 900; color: var(--white); line-height: 1; letter-spacing: -0.03em; margin-bottom: 8px; }
-    .stat-lbl { font-size: 15px; color: rgba(255,255,255,0.72); font-weight: 500; }
-    .stat-4 .stat-num { color: var(--gold); }
-
-    /* ===========================
+/* ===========================
        FEATURES (light)
     =========================== */
     #features { background: var(--light); padding: 120px 48px; }
@@ -681,7 +656,7 @@
     =========================== */
     #cta {
       background: linear-gradient(160deg, #0D0D1A 0%, #2D1B6B 55%, #7C3AED 100%);
-      padding: 130px 48px; text-align: center; position: relative; overflow: hidden;
+      padding: 96px 48px 104px; text-align: center; position: relative; overflow: hidden;
     }
     #cta::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -769,7 +744,6 @@
       .bento-grid { grid-template-columns: repeat(2,1fr); }
       .bento-card.span2 { grid-column: span 1; }
       .bento-card.rowspan { grid-row: span 1; min-height: 210px; }
-      .stats-inner { grid-template-columns: repeat(2,1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     }
     @media (max-width: 768px) {
@@ -778,13 +752,12 @@
       .nav-burger { display: block; }
       #navbar { padding: 16px 20px; }
       #navbar.scrolled { padding: 12px 20px; }
-      .divider-dark-down, .divider-light-up, .divider-dark-down-2, .divider-light-from-blue { display: none; }
+      .divider-dark-down, .divider-light-up, .divider-dark-down-2 { display: none; }
       .quotes-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       #hero { padding: 110px 20px 80px; }
       #how-it-works, #demo, #quotes, #features, #showcase, #cta { padding: 80px 20px; }
-      #stats { padding: 60px 20px; }
       #occasions { padding: 40px 0 56px; }
       footer { padding: 60px 20px 36px; }
       .feat-grid { grid-template-columns: 1fr; }
@@ -794,11 +767,7 @@
       .hero-input { min-width: unset; width: 100%; }
       .cta-form { flex-direction: column; }
       .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
-      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 24px; }
       .footer-watermark { font-size: 100px; }
-    }
-    @media (max-width: 420px) {
-      .stats-inner { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -849,7 +818,6 @@
      HERO (dark)
 ================================ -->
 <section id="hero">
-  <canvas id="particles"></canvas>
   <div class="hero-inner">
     <div class="hero-left">
       <h1 class="hero-headline fraunces">
@@ -868,15 +836,7 @@
         </div>
       </div>
 
-      <div class="social-proof">
-        <div class="avatars">
-          <img src="https://placehold.co/38x38/7C3AED/ffffff?text=A" alt="" class="avatar">
-          <img src="https://placehold.co/38x38/FFD600/0D0D1A?text=B" alt="" class="avatar">
-          <img src="https://placehold.co/38x38/EC4899/ffffff?text=C" alt="" class="avatar">
-          <img src="https://placehold.co/38x38/00C9A7/ffffff?text=D" alt="" class="avatar">
-        </div>
-        <span class="social-text"><strong>4,800+</strong> people already on the waitlist</span>
-      </div>
+      <div class="hero-fineprint">Be the first to know when we launch.</div>
     </div>
 
     <div class="hero-cards-wrap">
@@ -1018,7 +978,7 @@
           <div class="demo-body">
             <div class="demo-title" id="demoTitle">Emma's 30th Birthday 🎂</div>
             <div class="demo-item">
-              <img src="https://placehold.co/50x50/EC4899/ffffff?text=K" class="demo-img" alt="">
+              <span class="demo-img" style="background:#EC4899" aria-hidden="true">K</span>
               <div class="demo-item-info">
                 <div class="demo-item-name">KitchenAid Stand Mixer</div>
                 <div class="demo-item-price">£349.00</div>
@@ -1026,7 +986,7 @@
               <div class="demo-item-chip">Chip in</div>
             </div>
             <div class="demo-item">
-              <img src="https://placehold.co/50x50/7C3AED/ffffff?text=A" class="demo-img" alt="">
+              <span class="demo-img" style="background:#7C3AED" aria-hidden="true">A</span>
               <div class="demo-item-info">
                 <div class="demo-item-name">Apple AirPods Pro</div>
                 <div class="demo-item-price">£229.00</div>
@@ -1034,7 +994,7 @@
               <div class="demo-item-chip">Chip in</div>
             </div>
             <div class="demo-item">
-              <img src="https://placehold.co/50x50/FFD600/0D0D1A?text=G" class="demo-img" alt="">
+              <span class="demo-img" style="background:#FFD600;color:#0D0D1A" aria-hidden="true">G</span>
               <div class="demo-item-info">
                 <div class="demo-item-name">Glossier Perfume Set</div>
                 <div class="demo-item-price">£75.00</div>
@@ -1056,15 +1016,15 @@
             </div>
             <div class="demo-contrib-row">
               <div class="demo-contrib-avs" id="demoAvs">
-                <img src="https://placehold.co/32x32/7C3AED/fff?text=1" class="demo-contrib-av" alt="">
-                <img src="https://placehold.co/32x32/EC4899/fff?text=2" class="demo-contrib-av" alt="">
-                <img src="https://placehold.co/32x32/FFD600/000?text=3" class="demo-contrib-av" alt="">
-                <img src="https://placehold.co/32x32/00C9A7/fff?text=4" class="demo-contrib-av" alt="">
-                <img src="https://placehold.co/32x32/7C3AED/fff?text=5" class="demo-contrib-av" alt="">
-                <img src="https://placehold.co/32x32/0891B2/fff?text=6" class="demo-contrib-av" alt="">
-                <img src="https://placehold.co/32x32/EC4899/fff?text=7" class="demo-contrib-av" alt="">
-                <img src="https://placehold.co/32x32/059669/fff?text=8" class="demo-contrib-av" alt="">
-                <img src="https://placehold.co/32x32/DC2626/fff?text=9" class="demo-contrib-av" alt="">
+                <span class="demo-contrib-av" style="background:#7C3AED" aria-hidden="true">1</span>
+                <span class="demo-contrib-av" style="background:#EC4899" aria-hidden="true">2</span>
+                <span class="demo-contrib-av" style="background:#FFD600;color:#0D0D1A" aria-hidden="true">3</span>
+                <span class="demo-contrib-av" style="background:#00C9A7" aria-hidden="true">4</span>
+                <span class="demo-contrib-av" style="background:#7C3AED" aria-hidden="true">5</span>
+                <span class="demo-contrib-av" style="background:#0891B2" aria-hidden="true">6</span>
+                <span class="demo-contrib-av" style="background:#EC4899" aria-hidden="true">7</span>
+                <span class="demo-contrib-av" style="background:#059669" aria-hidden="true">8</span>
+                <span class="demo-contrib-av" style="background:#DC2626" aria-hidden="true">9</span>
               </div>
               <div class="demo-contrib-text" id="demoContribText">pooled by 0 friends</div>
             </div>
@@ -1143,35 +1103,7 @@
   </div>
 </section>
 
-<!-- ================================
-     STATS (purple animated) — 4 counters
-================================ -->
-<section id="stats">
-  <div class="stats-inner" style="max-width:1280px;margin:0 auto;padding:0 48px;">
-    <div>
-      <span class="stat-icon">🎁</span>
-      <div class="stat-num" id="stat1">0</div>
-      <div class="stat-lbl">wishes granted</div>
-    </div>
-    <div>
-      <span class="stat-icon">💰</span>
-      <div class="stat-num" id="stat2">£0</div>
-      <div class="stat-lbl">pooled</div>
-    </div>
-    <div>
-      <span class="stat-icon">🎉</span>
-      <div class="stat-num" id="stat3">0</div>
-      <div class="stat-lbl">occasions covered</div>
-    </div>
-    <div class="stat-4">
-      <span class="stat-icon">🚫</span>
-      <div class="stat-num" id="stat4">5,000</div>
-      <div class="stat-lbl">unwanted gifts</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider-light-from-blue"></div>
+<div class="divider-dark-down"></div>
 
 <!-- ================================
      FEATURES (light)
@@ -1323,7 +1255,7 @@
       <div class="cta-success-text">You're in! Welcome to WishPool.</div>
       <div class="cta-success-sub">We'll be in touch when we launch. Something special is coming.</div>
     </div>
-    <div class="cta-fine">Free forever for early members · Launching in the UK 🇬🇧</div>
+    <div class="cta-fine">Free to create. No hidden fees. Launching in the UK 🇬🇧</div>
   </div>
 </section>
 
@@ -1376,6 +1308,15 @@
 <script>
 (function() {
 
+  /* Track hero viewport visibility so the word-swap + card carousel pause when scrolled away */
+  let heroVisible = true;
+  const heroSection = document.getElementById('hero');
+  if (heroSection && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+    }, { threshold: 0 }).observe(heroSection);
+  }
+
   /* -------- 1. SCROLL PROGRESS + BACK TO TOP -------- */
   const progressBar = document.getElementById('scroll-progress');
   const backTop = document.getElementById('back-top');
@@ -1407,32 +1348,6 @@
   document.querySelectorAll('.mob-nav a, .mob-cta').forEach(a => a.addEventListener('click', closeMenu));
 
 
-  /* -------- 4. EMOJI PARTICLES -------- */
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  const EMOJIS = ['🎂','🎓','💍','🎁','💸','🎉','👶','🏠','🎄','💝','🏆','💐','✨','🎀','🥂','🕯️','🌸','💫'];
-  function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas, { passive: true });
-  const ptcls = EMOJIS.map(em => ({
-    em, x: Math.random() * window.innerWidth,
-    y: window.innerHeight * 0.3 + Math.random() * window.innerHeight * 0.9,
-    size: 28 + Math.random() * 16, spd: 0.28 + Math.random() * 0.45,
-    op: 0.10 + Math.random() * 0.22, wb: Math.random() * Math.PI * 2,
-    wbSpd: 0.007 + Math.random() * 0.012, wbAmp: 16 + Math.random() * 22
-  }));
-  (function tick() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ptcls.forEach(p => {
-      p.y -= p.spd; p.wb += p.wbSpd;
-      if (p.y < -60) { p.y = canvas.height + 60; p.x = Math.random() * canvas.width; }
-      ctx.save(); ctx.globalAlpha = p.op;
-      ctx.font = p.size + 'px serif';
-      ctx.fillText(p.em, p.x + Math.sin(p.wb) * p.wbAmp, p.y);
-      ctx.restore();
-    });
-    requestAnimationFrame(tick);
-  })();
 
 
   /* -------- 5. WORD SWAP + GLOW -------- */
@@ -1452,6 +1367,7 @@
   const swapWrap = document.getElementById('swapWrap');
 
   function cycleWord() {
+    if (!heroVisible) return;
     swapEl.classList.add('exit');
     setTimeout(() => {
       wIdx = (wIdx + 1) % WORDS.length;
@@ -1493,7 +1409,7 @@
           '<div class="fc-bar"><div class="fc-fill" style="width:' + b.pct + '%"></div></div>' +
           '<div class="fc-amount">' + b.amount + ' <span class="fc-amount-sub">' + b.goal + '</span></div>' +
           '<div class="fc-contrib"><div class="fc-avs">' +
-          b.avs.map((c, i) => '<img src="https://placehold.co/24x24/' + c + '/fff?text=' + (i + 1) + '" class="fc-av" alt="">').join('') +
+          b.avs.map((c, i) => '<span class="fc-av" style="background:#' + c + (c === 'FFD600' ? ';color:#0D0D1A' : '') + '" aria-hidden="true">' + (i + 1) + '</span>').join('') +
           '</div><span>' + b.contrib + '</span></div>';
       } else {
         bodyHtml =
@@ -1520,6 +1436,7 @@
     renderCard(cards[slots[2]], POOL[2]); cards[slots[2]].className = 'float-card is-back';
 
     function tick() {
+      if (!heroVisible) return;
       const leavingEl = cards[slots[0]];
       leavingEl.classList.remove('is-front');
       leavingEl.classList.add('is-leaving');
@@ -1617,46 +1534,6 @@
   }
 
 
-  /* -------- 12. STATS COUNTERS (ease-out, 4th counts DOWN) -------- */
-  const statsSection = document.getElementById('stats');
-  let statsTriggered = false;
-  if (statsSection) {
-    const statsObs = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !statsTriggered) {
-        statsTriggered = true;
-        function countUpEased(id, end, prefix, suffix, isDecimal) {
-          const el = document.getElementById(id);
-          const totalSteps = 60; const duration = 1800;
-          let step = 0;
-          const iv = setInterval(() => {
-            step++;
-            const t = step / totalSteps;
-            const eased = 1 - Math.pow(1 - t, 3);
-            const cur = end * eased;
-            el.textContent = prefix + (isDecimal ? cur.toFixed(1) : Math.round(cur).toLocaleString()) + suffix;
-            if (step >= totalSteps) { el.textContent = prefix + (isDecimal ? end.toFixed(1) : end.toLocaleString()) + suffix; clearInterval(iv); }
-          }, duration / totalSteps);
-        }
-        countUpEased('stat1', 12000, '', '+', false);
-        countUpEased('stat2', 2.4, '£', 'M', true);
-        countUpEased('stat3', 8, '', '', false);
-        const el4 = document.getElementById('stat4');
-        let n4 = 5000; const totalSteps4 = 60; let step4 = 0;
-        const iv4 = setInterval(() => {
-          step4++;
-          const t = step4 / totalSteps4;
-          const eased = 1 - Math.pow(1 - t, 3);
-          n4 = Math.round(5000 * (1 - eased));
-          el4.textContent = n4.toLocaleString();
-          if (step4 >= totalSteps4) { el4.textContent = '0'; clearInterval(iv4); }
-        }, 1800 / totalSteps4);
-        statsObs.disconnect();
-      }
-    }, { threshold: 0.4 });
-    statsObs.observe(statsSection);
-  }
-
-
   /* -------- 13. FEATURES REVEAL -------- */
   const featGrid = document.getElementById('featGrid');
   let featTriggered = false;
@@ -1720,13 +1597,30 @@ async function submitEmail(source) {
   const successEl = document.getElementById(successId);
   if (successEl) successEl.classList.add('show');
 
-  if (typeof confetti === 'function') {
-    confetti({
-      particleCount: 150,
-      spread: 80,
-      origin: { y: 0.6 }
-    });
-  }
+  ensureConfetti().then(() => {
+    if (typeof confetti === 'function') {
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    }
+  });
+}
+
+let _confettiPromise;
+function ensureConfetti() {
+  if (typeof confetti === 'function') return Promise.resolve();
+  if (_confettiPromise) return _confettiPromise;
+  _confettiPromise = new Promise(resolve => {
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.9.2/confetti.browser.min.js';
+    s.async = true;
+    s.onload = resolve;
+    s.onerror = resolve;
+    document.head.appendChild(s);
+  });
+  return _confettiPromise;
 }
 </script>
 </body>
