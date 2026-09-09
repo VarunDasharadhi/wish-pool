@@ -2,3 +2,6 @@ node_modules/
 temporary screenshots/
 landing.png
 SESSION.md
+
+# gitignored scratch space for agent working artifacts
+.superpowers/
