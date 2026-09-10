@@ -19,7 +19,9 @@ far as tracked files show.
   `bd8628b`, 2026-05-09 to 2026-05-18). Then dormant until today: `283339b` (2026-09-10) removed
   placeholder social proof, a stats band, and a particle canvas from the landing page, and added
   `SESSION.md` to `.gitignore`.
-- Currently on `main`, 1 commit ahead of `origin/main` (`283339b` unpushed) as of today.
+- The branch of record for this work is `main`: 1 commit ahead of `origin/main` (`283339b`,
+  unpushed). Whatever branch happens to be checked out at any moment is not a STATE.md fact,
+  check `git branch --show-current` directly.
 - No automated verification gate exists (see `AGENTS.md`); nothing to run for this docs-only task.
 
 ## Open and reserved for Varun
