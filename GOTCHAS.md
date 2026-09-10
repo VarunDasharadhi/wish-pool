@@ -9,4 +9,5 @@ rediscovered the hard way; you only pay for the detail when it is actually relev
 
 ## Gotchas
 
-- (none recorded yet)
+- Local dev (`node serve.mjs`) has no `/api/*` routing, so a form submit against it 404s on
+  `/api/subscribe` and never reaches Airtable. See `AGENTS.md`'s Stack and run commands section.

@@ -30,7 +30,9 @@ only listed dependency, used by the dev-only screenshot tool below.
   no `/api/*` routing, so a form submit against it will 404 on `/api/subscribe` and never reach
   Airtable. Only a real Vercel deploy (or `vercel dev`) exercises the API end to end.
 - `node screenshot.mjs <url> [label]`: Puppeteer screenshot saved to `temporary screenshots/`
-  (gitignored), for comparing the rendered page against a reference design.
+  (gitignored), for comparing the rendered page against a reference design. Screenshots are
+  auto-incremented (`screenshot-N.png`, or `screenshot-N-label.png` with a label) and never
+  overwritten.
 - `node verify-word.mjs [word]`: force-renders a hero swap word to check its layout.
 
 ## Verification gate
@@ -59,18 +61,22 @@ Claude-specific; see `CLAUDE.md` for what stayed there):
 - If no reference image: design from scratch with high craft. No default Tailwind palette
   (indigo-500, blue-600, etc); pick a custom brand color and derive from it. Never flat
   `shadow-md`; use layered, color-tinted shadows. Pair a display/serif font with a clean sans,
-  never the same font for both, tight tracking on large headings, generous line-height on body.
-  Layer multiple radial gradients and add grain/texture for depth rather than a flat gradient.
-  Only animate `transform` and `opacity`, never `transition-all`, with spring-style easing. Every
-  clickable element needs hover, focus-visible, and active states. Images get a gradient overlay
-  plus a color treatment layer. Use intentional, consistent spacing tokens, and a layering system
-  (base, elevated, floating) rather than one flat plane.
-- Output defaults: single `index.html`, all styles inline, unless told otherwise. Tailwind via the
-  CDN script tag. Placeholder images via `https://placehold.co/WIDTHxHEIGHT`. Mobile-first
-  responsive.
+  never the same font for both; tight tracking (`-0.03em`) on large headings, generous line-height
+  (`1.7`) on body. Layer multiple radial gradients and add grain/texture via an SVG noise filter
+  for depth rather than a flat gradient. Only animate `transform` and `opacity`, never
+  `transition-all`, with spring-style easing. Every clickable element needs hover, focus-visible,
+  and active states. Images get a gradient overlay (`bg-gradient-to-t from-black/60`) and a color
+  treatment layer (`mix-blend-multiply`). Use intentional, consistent spacing tokens, and a
+  layering system (base, elevated, floating) rather than one flat plane.
+- Output defaults: single `index.html`, all styles inline, unless told otherwise. Tailwind via
+  `<script src="https://cdn.tailwindcss.com"></script>`. Placeholder images via
+  `https://placehold.co/WIDTHxHEIGHT`. Mobile-first responsive.
 - Verify visually: serve locally (`node serve.mjs`), screenshot (`node screenshot.mjs`), compare
   against the reference, fix mismatches, re-screenshot. At least 2 comparison rounds; stop only
-  when no visible differences remain or the user says so.
+  when no visible differences remain or the user says so. Be specific when comparing, for example
+  "heading is 32px but reference shows ~24px" or "card gap is 16px but should be 24px", and check
+  spacing and padding, font size, weight and line-height, colors as exact hex, alignment,
+  border-radius, shadows, and image sizing.
 - Do not add sections, features, or content not in the reference. Do not "improve" a reference
   design instead of matching it.
 - Check for a `brand_assets/` folder before inventing placeholders (none exists in this repo as

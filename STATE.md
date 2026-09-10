@@ -21,8 +21,6 @@ far as tracked files show.
   `SESSION.md` to `.gitignore`.
 - Currently on `main`, 1 commit ahead of `origin/main` (`283339b` unpushed) as of today.
 - No automated verification gate exists (see `AGENTS.md`); nothing to run for this docs-only task.
-- A gitignored `SESSION.md` exists locally for session-to-session continuity notes; it is not
-  committed, so its content is not duplicated here.
 
 ## Open and reserved for Varun
 
@@ -36,6 +34,7 @@ far as tracked files show.
   `node serve.mjs`.
 - Storage: Airtable base `app40Sptn1IA6WmBQ`, table `Table 1` (both read directly from
   `api/subscribe.js`, already public in that file).
+- Live URL: not stated in any tracked file; unknown from what's in the repo.
 - Env var name in use (no value): `AIRTABLE_TOKEN`, read by `api/subscribe.js`.
 
 Last verified: 2026-09-10
